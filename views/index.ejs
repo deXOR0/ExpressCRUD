@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script defer src="js/bootstrap.bundle.min.js"></script>
+    <title>Express Office</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>View Users Table</h1>
+
+      <a href="add-user">
+        <button class="btn btn-primary add-btn">
+          <i class="bi bi-plus-square"></i>
+          Add User
+        </button>
+      </a>
+
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Action</th>
+        </tr>
+        <% datas.forEach(data => { %>
+        <tr>
+          <td><%= data.name %></td>
+          <td><%= data.age %></td>
+          <td><%= data.gender %></td>
+          <td>
+            <a href="user/<%= data.id %>/edit">
+              <button class="btn btn-warning action-btn">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+            </a>
+            <a href="user/<%= data.id %>/delete">
+              <button class="btn btn-danger action-btn">
+                <i class="bi bi-x-square"></i>
+              </button>
+            </a>
+          </td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+  </body>
+</html>
